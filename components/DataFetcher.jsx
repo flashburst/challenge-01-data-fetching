@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
-import { ethers } from "ethers";
-import * as DataService from "../services/data";
-import { useEthers } from "@usedapp/core";
+import { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import { useEthers } from '@usedapp/core';
+
+// small case for first letter since this is not a component
+import * as dataService from '../services/data';
 
 export const ChallengeUI = () => {
   const [data, setData] = useState({});
@@ -10,13 +12,14 @@ export const ChallengeUI = () => {
   useEffect(() => {
     const address = account || ethers.constants.AddressZero;
 
-    const payload = {
-      address,
-    };
+    dataService
+      .getData('/api/hello', { address })
+      .then(setData)
+      .catch((e) => {
+        console.log(e);
 
-    const url = "/api/hello";
-
-    DataService.getData(url, payload).then(setData).catch(console.error);
+        // notifyError(e.message)
+      });
   }, [account]);
 
   return (

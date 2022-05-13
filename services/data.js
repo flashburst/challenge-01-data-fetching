@@ -1,6 +1,6 @@
 function accountDataApi() {
   let controller;
-  return async (url, data) => {
+  return (url, data) => {
     controller?.abort();
     controller = new AbortController();
 
@@ -29,6 +29,6 @@ export const getData = accountDataApi();
 /**
  * errorMessage
  */
-export function isUserAbortedRequest(errorMessage) {
+function isUserAbortedRequest(errorMessage) {
   return errorMessage.message.includes('The user aborted a request');
 }

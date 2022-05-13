@@ -16,6 +16,7 @@ export const ChallengeUI = () => {
       .getData('/api/hello', { address })
       .then(setData)
       .catch((e) => {
+        // rethrowed error can be catched here
         console.log(e);
 
         // notifyError(e.message)

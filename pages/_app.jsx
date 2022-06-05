@@ -1,10 +1,9 @@
-import { Mainnet, DAppProvider } from "@usedapp/core";
-import { getDefaultProvider } from "ethers";
+import { Mumbai, DAppProvider } from "@usedapp/core";
 
 const config = {
-  readOnlyChainId: Mainnet.chainId,
+  readOnlyChainId: Mumbai.chainId,
   readOnlyUrls: {
-    [Mainnet.chainId]: getDefaultProvider("mainnet"),
+    [Mumbai.chainId]: "https://matic-mumbai.chainstacklabs.com",
   },
 };
 

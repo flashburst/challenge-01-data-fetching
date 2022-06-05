@@ -11,6 +11,8 @@ export const config = {
 };
 
 export default async function handler(req, res) {
+  await delay(2000);
+
   const { method, body } = req;
 
   if (!body || !body.address) {
